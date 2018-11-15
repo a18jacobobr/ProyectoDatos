@@ -9,7 +9,7 @@
     End Sub
 
     Private Sub NumericosEnteros_KeyPress(sender As Object, e As KeyPressEventArgs) _
-        Handles txtTelfn.KeyPress, txtCodPost.KeyPress
+        Handles txtTelfn.KeyPress, txtCodPost.KeyPress, txtFax.KeyPress
         Dim CajaTexto As System.Windows.Forms.TextBox
         CajaTexto = CType(sender, System.Windows.Forms.TextBox)
         Dim Validos As String = "0123456789" + Chr(8)

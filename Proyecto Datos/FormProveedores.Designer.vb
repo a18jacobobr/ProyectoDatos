@@ -58,7 +58,6 @@ Partial Class FormProveedores
         Me.lblNombre = New System.Windows.Forms.Label()
         Me.lblNif = New System.Windows.Forms.Label()
         Me.lblCodProv = New System.Windows.Forms.Label()
-        Me.txtFechaAlta = New System.Windows.Forms.TextBox()
         Me.lblFechaAlta = New System.Windows.Forms.Label()
         Me.txtCodFormaPago = New System.Windows.Forms.TextBox()
         Me.lblCodFormaPago = New System.Windows.Forms.Label()
@@ -68,6 +67,7 @@ Partial Class FormProveedores
         Me.lblCodBanco = New System.Windows.Forms.Label()
         Me.txtDireccion = New System.Windows.Forms.TextBox()
         Me.lblDireccion = New System.Windows.Forms.Label()
+        Me.dateTimeFechaAlltaProv = New System.Windows.Forms.DateTimePicker()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -425,16 +425,6 @@ Partial Class FormProveedores
         Me.lblCodProv.TabIndex = 25
         Me.lblCodProv.Text = "Código Proveedor:"
         '
-        'txtFechaAlta
-        '
-        Me.txtFechaAlta.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.txtFechaAlta.Location = New System.Drawing.Point(338, 395)
-        Me.txtFechaAlta.Name = "txtFechaAlta"
-        Me.txtFechaAlta.ReadOnly = True
-        Me.txtFechaAlta.Size = New System.Drawing.Size(100, 20)
-        Me.txtFechaAlta.TabIndex = 49
-        Me.txtFechaAlta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
         'lblFechaAlta
         '
         Me.lblFechaAlta.AutoSize = True
@@ -525,11 +515,19 @@ Partial Class FormProveedores
         Me.lblDireccion.TabIndex = 56
         Me.lblDireccion.Text = "Descripción:"
         '
+        'dateTimeFechaAlltaProv
+        '
+        Me.dateTimeFechaAlltaProv.Location = New System.Drawing.Point(338, 392)
+        Me.dateTimeFechaAlltaProv.Name = "dateTimeFechaAlltaProv"
+        Me.dateTimeFechaAlltaProv.Size = New System.Drawing.Size(200, 20)
+        Me.dateTimeFechaAlltaProv.TabIndex = 58
+        '
         'FormProveedores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1260, 634)
+        Me.Controls.Add(Me.dateTimeFechaAlltaProv)
         Me.Controls.Add(Me.txtDireccion)
         Me.Controls.Add(Me.lblDireccion)
         Me.Controls.Add(Me.txtCodBanc)
@@ -538,7 +536,6 @@ Partial Class FormProveedores
         Me.Controls.Add(Me.lblCodSucursal)
         Me.Controls.Add(Me.txtCodFormaPago)
         Me.Controls.Add(Me.lblCodFormaPago)
-        Me.Controls.Add(Me.txtFechaAlta)
         Me.Controls.Add(Me.lblFechaAlta)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -608,7 +605,6 @@ Partial Class FormProveedores
     Friend WithEvents lblNombre As Label
     Friend WithEvents lblNif As Label
     Friend WithEvents lblCodProv As Label
-    Friend WithEvents txtFechaAlta As TextBox
     Friend WithEvents lblFechaAlta As Label
     Friend WithEvents txtCodFormaPago As TextBox
     Friend WithEvents lblCodFormaPago As Label
@@ -618,4 +614,5 @@ Partial Class FormProveedores
     Friend WithEvents lblCodBanco As Label
     Friend WithEvents txtDireccion As TextBox
     Friend WithEvents lblDireccion As Label
+    Friend WithEvents dateTimeFechaAlltaProv As DateTimePicker
 End Class
