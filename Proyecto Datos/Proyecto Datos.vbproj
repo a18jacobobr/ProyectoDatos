@@ -92,6 +92,12 @@
     <Compile Include="FrmAuxiliar.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmAuxiliarProveedores.Designer.vb">
+      <DependentUpon>frmAuxiliarProveedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAuxiliarProveedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmFiltros.designer.vb">
       <DependentUpon>FrmFiltros.vb</DependentUpon>
     </Compile>
@@ -130,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAuxiliar.resx">
       <DependentUpon>FrmAuxiliar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAuxiliarProveedores.resx">
+      <DependentUpon>frmAuxiliarProveedores.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFiltros.resx">
       <DependentUpon>FrmFiltros.vb</DependentUpon>

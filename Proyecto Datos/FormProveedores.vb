@@ -14,11 +14,8 @@ Public Class FormProveedores
         DtaProveedores.Fill(DtsMProveedores, "Prov")
         Dim cmbProveedores As New OleDbCommandBuilder(DtaProveedores)
 
-        DtaCPedidosC = New OleDbDataAdapter("Select * from CPedidosC order by NPedido", CnnGestion)
-        DtaCPedidosC.Fill(DtsMProveedores, "Iva")
-
         DtaSucursales = New OleDbDataAdapter("Select * from Sucursales order by CodSuc", CnnGestion)
-        DtaSucursales.Fill(DtsMProveedores, "Prove")
+        DtaSucursales.Fill(DtsMProveedores, "Sucursales")
 
         DtaFormasPago = New OleDbDataAdapter("Select * from FormasPago order by CodFPago", CnnGestion)
         DtaFormasPago.Fill(DtsMProveedores, "FormasPago")
@@ -64,17 +61,17 @@ Public Class FormProveedores
     End Sub
 
     Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click
-        Dim FrmNuevo As New FrmAuxiliar
+        Dim FrmNuevo As New frmAuxiliarProveedores
         EnlazarCombos(FrmNuevo)
         FrmNuevo.Text = "Nuevo Proveedor"
-        FrmNuevo.LblTCodigo.Visible = False
-        FrmNuevo.LblCodProd.Visible = False
+        FrmNuevo.LblTCodP.Visible = False
+        FrmNuevo.LblCodProvee.Visible = False
         If FrmNuevo.ShowDialog = DialogResult.Cancel Then
             Exit Sub
         End If
-        Dim fproducto As DataRow
-        fproducto = DtsMProductos.Tables("Prod").NewRow()
-        fproducto("CodProd") = ObtenerUltimoCodigo()
+        Dim fproveedor As DataRow
+        fproveedor = DtsMProveedores.Tables("Prov").NewRow()
+        fproveedor("Codigo") = ObtenerUltimoCodigo()
         CargarDatos(FrmNuevo, fproducto)
         DtsMProductos.Tables("Prod").Rows.Add(fproducto)
         DtaProductos.Update(DtsMProductos.Tables("Prod"))
@@ -112,14 +109,17 @@ Public Class FormProveedores
         End With
 
     End Sub
-    Private Sub EnlazarCombos(formauxM As FrmAuxiliar)
+    Private Sub EnlazarCombos(formauxM As frmAuxiliarProveedores)
         With formauxM
-            .CmbTiposIva.DataSource = DtsMProductos.Tables("Iva")
-            .CmbTiposIva.DisplayMember = "Porcentaje"
-            .CmbTiposIva.ValueMember = "TipoIva"
-            .CmbProveedores.DataSource = DtsMProductos.Tables("Prove")
-            .CmbProveedores.DisplayMember = "Nombre"
-            .CmbProveedores.ValueMember = "Codigo"
+            .comboCodBanc.DataSource = DtsMProveedores.Tables("Sucursales")
+            .comboCodBanc.DisplayMember = "CodSuc"          'esto es lo que enseña
+            .comboCodBanc.ValueMember = "CodSuc"            'esto es lo que envía internamente
+            .comboCodSucursal.DataSource = DtsMProveedores.Tables("Sucursales")
+            .comboCodSucursal.DisplayMember = "CodBanco"
+            .comboCodSucursal.ValueMember = "CodBanco"
+            .comboFormaPago.DataSource = DtsMProveedores.Tables("FormasPago")
+            .comboFormaPago.DisplayMember = "Descrip"
+            .comboFormaPago.ValueMember = "CodFPago"
         End With
 
     End Sub
@@ -181,7 +181,7 @@ Public Class FormProveedores
     'End Sub
 
     Private Function ObtenerUltimoCodigo() As Short
-        Dim cmdultimo As New OleDbCommand("select max(Codprod) from Productos", CnnGestion)
+        Dim cmdultimo As New OleDbCommand("select max(Codigo) from Proveedores", CnnGestion)
         Dim ultimo As Object
         Dim ultimoCod As Short
         CnnGestion.Open()
