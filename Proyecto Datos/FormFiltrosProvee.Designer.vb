@@ -30,6 +30,7 @@ Partial Class FormFiltrosProvee
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CmbCampos = New System.Windows.Forms.ComboBox()
         Me.CmbOperadores = New System.Windows.Forms.ComboBox()
+        Me.dtTimeFechaFiltro = New System.Windows.Forms.DateTimePicker()
         Me.SuspendLayout()
         '
         'LblSiNo
@@ -113,11 +114,19 @@ Partial Class FormFiltrosProvee
         Me.CmbOperadores.Size = New System.Drawing.Size(405, 32)
         Me.CmbOperadores.TabIndex = 9
         '
+        'dtTimeFechaFiltro
+        '
+        Me.dtTimeFechaFiltro.Location = New System.Drawing.Point(716, 100)
+        Me.dtTimeFechaFiltro.Name = "dtTimeFechaFiltro"
+        Me.dtTimeFechaFiltro.Size = New System.Drawing.Size(394, 20)
+        Me.dtTimeFechaFiltro.TabIndex = 17
+        '
         'FormFiltrosProvee
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1264, 264)
+        Me.Controls.Add(Me.dtTimeFechaFiltro)
         Me.Controls.Add(Me.LblSiNo)
         Me.Controls.Add(Me.LblValores)
         Me.Controls.Add(Me.BtnCancelar)
@@ -141,4 +150,5 @@ Partial Class FormFiltrosProvee
     Friend WithEvents Label1 As Label
     Friend WithEvents CmbCampos As ComboBox
     Friend WithEvents CmbOperadores As ComboBox
+    Friend WithEvents dtTimeFechaFiltro As DateTimePicker
 End Class

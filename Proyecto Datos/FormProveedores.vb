@@ -4,14 +4,14 @@ Public Class FormProveedores
     Dim DtsMProveedores As DataSet
     Dim DtaProveedores, DtaCPedidosC, DtaSucursales, DtaFormasPago As OleDbDataAdapter
     Public OperadoresString, OperadoresNumFec As String()
-    Private Sub FrmProductos_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub FrmProveedores_Load(sender As Object, e As EventArgs) Handles Me.Load
 
         CnnGestion = New OleDbConnection _
         ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
         "L:\DesenvolvementoInterfaces\proyectos visual studio\Proyecto Datos\Gestion comercial.mdb")
         DtaProveedores = New OleDbDataAdapter("Select * from Proveedores order by Codigo", CnnGestion)
         DtsMProveedores = New DataSet
-        DtaProveedores.Fill(DtsMProveedores, "Prov")
+        DtaProveedores.Fill(DtsMProveedores, "Provee")
         Dim cmbProveedores As New OleDbCommandBuilder(DtaProveedores)
 
         DtaSucursales = New OleDbDataAdapter("Select * from Sucursales order by CodSuc", CnnGestion)
@@ -28,36 +28,36 @@ Public Class FormProveedores
         txtNif.DataBindings.Add("Text", DtsMProveedores.Tables("Provee"), "NIF")
         txtNombre.DataBindings.Add("Text", DtsMProveedores.Tables("Provee"), "Nombre")
         txtDireccion.DataBindings.Add("Text", DtsMProveedores.Tables("Provee"), "Dirección")
-        txtCodPos.DataBindings.Add("Text", DtsMProveedores.Tables("Provee"), "CosPos")
+        txtCodPos.DataBindings.Add("Text", DtsMProveedores.Tables("Provee"), "Codpos")
         txtPoblacion.DataBindings.Add("Text", DtsMProveedores.Tables("Provee"), "Poblac")
         txtProvincia.DataBindings.Add("Text", DtsMProveedores.Tables("Provee"), "Provin")
         txtTlfn.DataBindings.Add("Text", DtsMProveedores.Tables("Provee"), "Tfno")
         txtFax.DataBindings.Add("Text", DtsMProveedores.Tables("Provee"), "Fax")
         txtEmail.DataBindings.Add("Text", DtsMProveedores.Tables("Provee"), "email")
-        dateTimeFechaAlltaProv.DataBindings.Add("Text", DtsMProveedores.Tables("Provee"), "FechaAlta")
+        dateTimeFechaAlltaProv.DataBindings.Add("Text", DtsMProveedores.Tables("Provee"), "FecAlta")
         txtCodBanc.DataBindings.Add("Text", DtsMProveedores.Tables("Provee"), "CodBan")
         txtCodSucursal.DataBindings.Add("Text", DtsMProveedores.Tables("Provee"), "CodSuc")
         txtCodFormaPago.DataBindings.Add("Text", DtsMProveedores.Tables("Provee"), "CodFPago")
-        'DtgProductos.DataSource = DtsMProductos.Tables("Prod")'
+        DtgProveedores.DataSource = DtsMProveedores.Tables("Provee") '
         'ESTO ES EL DATA GRID'
 
     End Sub
 
     Private Sub BtnPrimero_Click(sender As Object, e As EventArgs) Handles BtnPrimero.Click
-        Me.BindingContext(DtsMProveedores.Tables("Prod")).Position = 0
+        Me.BindingContext(DtsMProveedores.Tables("Provee")).Position = 0
     End Sub
 
     Private Sub BtnAnterior_Click(sender As Object, e As EventArgs) Handles BtnAnterior.Click
-        Me.BindingContext(DtsMProveedores.Tables("Prod")).Position -= 1
+        Me.BindingContext(DtsMProveedores.Tables("Provee")).Position -= 1
     End Sub
 
     Private Sub BtnSiguiente_Click(sender As Object, e As EventArgs) Handles BtnSiguiente.Click
-        Me.BindingContext(DtsMProveedores.Tables("Prod")).Position += 1
+        Me.BindingContext(DtsMProveedores.Tables("Provee")).Position += 1
     End Sub
 
     Private Sub BtnUltimo_Click(sender As Object, e As EventArgs) Handles BtnUltimo.Click
-        Me.BindingContext(DtsMProveedores.Tables("Prod")).Position =
-            Me.BindingContext(DtsMProveedores.Tables("Prod")).Count - 1
+        Me.BindingContext(DtsMProveedores.Tables("Provee")).Position =
+            Me.BindingContext(DtsMProveedores.Tables("Provee")).Count - 1
     End Sub
 
     Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click
@@ -70,30 +70,31 @@ Public Class FormProveedores
             Exit Sub
         End If
         Dim fproveedor As DataRow
-        fproveedor = DtsMProveedores.Tables("Prov").NewRow()        'crea nueva columna en el dataset
+        fproveedor = DtsMProveedores.Tables("Provee").NewRow()        'crea nueva columna en el dataset
         fproveedor("Codigo") = ObtenerUltimoCodigo()                'pilla el ultimo ID
         CargarDatos(FrmNuevo, fproveedor)                           'carga los datos del auxiliar
-        DtsMProveedores.Tables("Prod").Rows.Add(fproveedor)         'añade el row
+        DtsMProveedores.Tables("Provee").Rows.Add(fproveedor)         'añade el row
         DtaProveedores.Update(DtsMProveedores.Tables("Provee"))
-        DtsMProveedores.Tables("Prov").AcceptChanges()
+        DtsMProveedores.Tables("Provee").AcceptChanges()
         BtnUltimo_Click(Nothing, Nothing)
 
     End Sub
     Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles BtnModificar.Click
         Dim FrmModif As New frmAuxiliarProveedores
         EnlazarCombos(FrmModif)
-        FrmModif.Text = "Modificar Producto"
+        FrmModif.Text = "Modificar Proveedor"
         PasarDatos(FrmModif)
+        FrmModif.dateTimeFechaAlta.Enabled = False
         If FrmModif.ShowDialog = DialogResult.Cancel Then
             Exit Sub
         End If
-        Dim fproducto As DataRow
-        fproducto = DtsMProveedores.Tables("Prod").Rows(Me.BindingContext(DtsMProveedores.Tables("Prod")).Position)
-        fproducto.BeginEdit()
-        CargarDatos(FrmModif, fproducto)
-        fproducto.EndEdit()
-        DtaProveedores.Update(DtsMProveedores.Tables("Prod"))
-        DtsMProveedores.Tables("Prod").AcceptChanges()
+        Dim fproveedor As DataRow
+        fproveedor = DtsMProveedores.Tables("Provee").Rows(Me.BindingContext(DtsMProveedores.Tables("Provee")).Position)
+        fproveedor.BeginEdit()
+        CargarDatos(FrmModif, fproveedor)
+        fproveedor.EndEdit()
+        DtaProveedores.Update(DtsMProveedores.Tables("Provee"))
+        DtsMProveedores.Tables("Provee").AcceptChanges()
 
     End Sub
     Private Sub PasarDatos(FormularioDestino As frmAuxiliarProveedores)
@@ -129,7 +130,7 @@ Public Class FormProveedores
 
     End Sub
     Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
-        If MsgBox("Eliminar producto", MsgBoxStyle.Question + MsgBoxStyle.YesNo +
+        If MsgBox("Eliminar proveedor", MsgBoxStyle.Question + MsgBoxStyle.YesNo +
                   MsgBoxStyle.DefaultButton2, "Atención") = MsgBoxResult.No Then
             Exit Sub
         End If
@@ -143,14 +144,14 @@ Public Class FormProveedores
 
     Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles BtnBuscar.Click
         If TxtCodBuscar.Text = "" Then
-            MsgBox("Debe teclear un código de producto", MsgBoxStyle.Exclamation, "Atención")
+            MsgBox("Debe teclear un código de proveedor", MsgBoxStyle.Exclamation, "Atención")
             Exit Sub
         End If
         Dim posicion As Integer
         DtsMProveedores.Tables("Provee").DefaultView.Sort = "Codigo"
         posicion = DtsMProveedores.Tables("Provee").DefaultView.Find(TxtCodBuscar.Text)
         If posicion = -1 Then
-            MsgBox("No hay ningún Producto con el Código " & TxtCodBuscar.Text, MsgBoxStyle.Information, "Atención")
+            MsgBox("No hay ningún Proveedor con el Código " & TxtCodBuscar.Text, MsgBoxStyle.Information, "Atención")
             TxtCodBuscar.Focus()
             TxtCodBuscar.SelectAll()
 
@@ -167,14 +168,14 @@ Public Class FormProveedores
 
             fila("NIF") = .TxtNif.Text
             fila("Nombre") = .txtNombre.Text
-            fila("Direccion") = .txtDireccion.Text
+            fila("Dirección") = .txtDireccion.Text
             fila("CodPos") = CSng(.txtCodPost.Text)
             fila("Poblac") = .txtPoblacion.Text
             fila("Tfno") = CSng(.txtTelfn.Text)
             fila("fax") = CSng(.txtFax.Text)               'controlar valor num listo
             fila("email") = .txtEmail.Text
             fila("FecAlta") = .dateTimeFechaAlta.Value    'no se 
-            fila("CodBanc") = .comboCodBanc.SelectedValue
+            fila("CodBan") = .comboCodBanc.SelectedValue
             fila("CodSuc") = .comboCodSucursal.SelectedValue
             fila("CodFPago") = .comboFormaPago.SelectedValue
         End With
@@ -254,20 +255,17 @@ Public Class FormProveedores
                         Case 4
                             sfiltro += "<> '" & frmf.TxtValor.Text & "'"
                     End Select
-                Case 0, 4, 7, 8, 10, 11, 12, 13
+                Case 0, 4, 7, 8, 11, 12, 13
                     sfiltro += frmf.CmbOperadores.Text & frmf.TxtValor.Text
-                    ' Case 10
-                    '     If frmf.TxtValor.Text <> "N" And frmf.TxtValor.Text <> "S" Then
-                    '    Exit Sub
-                    '   End If
-                    '  Dim Valor As Boolean = IIf(frmf.TxtValor.Text.ToUpper = "S", True, False)
-                    ' sfiltro += frmf.CmbOperadores.Text & Valor
+                Case 10
+                    'FILTRO DATA TIME PICKER
+                    sfiltro += frmf.CmbOperadores.Text & "'" & Format(dateTimeFechaAlltaProv.Value, "Short Date") & "'"
             End Select
             Me.Cursor = Cursors.WaitCursor
-            DtsMProductos.Tables("Prod").DefaultView.RowFilter = sfiltro
+            DtsMProveedores.Tables("Provee").DefaultView.RowFilter = sfiltro
             Me.Cursor = Cursors.Default
             PictureBox1.Visible = True
-            Timer1.Start()
+            'Timer1.Start()
             BtnFiltrar.Text = "Ver Todos"
         Catch ErrorNoNumerico As InvalidCastException
             MsgBox("No se pudo filtrar, revise el valor introducido", MsgBoxStyle.Exclamation, "Atención")

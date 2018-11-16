@@ -23,6 +23,9 @@ Partial Class FormProveedores
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormProveedores))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.BtnEliminar = New System.Windows.Forms.Button()
         Me.BtnModificar = New System.Windows.Forms.Button()
@@ -68,10 +71,12 @@ Partial Class FormProveedores
         Me.txtDireccion = New System.Windows.Forms.TextBox()
         Me.lblDireccion = New System.Windows.Forms.Label()
         Me.dateTimeFechaAlltaProv = New System.Windows.Forms.DateTimePicker()
+        Me.DtgProveedores = New System.Windows.Forms.DataGridView()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.textCodPost.SuspendLayout()
+        CType(Me.DtgProveedores, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel2
@@ -522,11 +527,44 @@ Partial Class FormProveedores
         Me.dateTimeFechaAlltaProv.Size = New System.Drawing.Size(200, 20)
         Me.dateTimeFechaAlltaProv.TabIndex = 58
         '
+        'DtgProveedores
+        '
+        Me.DtgProveedores.AllowUserToAddRows = False
+        Me.DtgProveedores.AllowUserToDeleteRows = False
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        Me.DtgProveedores.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.DtgProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DtgProveedores.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.DtgProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DtgProveedores.DefaultCellStyle = DataGridViewCellStyle3
+        Me.DtgProveedores.Location = New System.Drawing.Point(75, 629)
+        Me.DtgProveedores.Name = "DtgProveedores"
+        Me.DtgProveedores.ReadOnly = True
+        Me.DtgProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DtgProveedores.Size = New System.Drawing.Size(1135, 196)
+        Me.DtgProveedores.TabIndex = 59
+        '
         'FormProveedores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1260, 634)
+        Me.ClientSize = New System.Drawing.Size(1248, 853)
+        Me.Controls.Add(Me.DtgProveedores)
         Me.Controls.Add(Me.dateTimeFechaAlltaProv)
         Me.Controls.Add(Me.txtDireccion)
         Me.Controls.Add(Me.lblDireccion)
@@ -565,6 +603,7 @@ Partial Class FormProveedores
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.textCodPost.ResumeLayout(False)
+        CType(Me.DtgProveedores, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -615,4 +654,5 @@ Partial Class FormProveedores
     Friend WithEvents txtDireccion As TextBox
     Friend WithEvents lblDireccion As Label
     Friend WithEvents dateTimeFechaAlltaProv As DateTimePicker
+    Friend WithEvents DtgProveedores As DataGridView
 End Class
