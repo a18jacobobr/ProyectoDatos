@@ -80,6 +80,24 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormAuxiliarClientes.Designer.vb">
+      <DependentUpon>FormAuxiliarClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAuxiliarClientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormClientes.Designer.vb">
+      <DependentUpon>FormClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormClientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFiltrosClientes.Designer.vb">
+      <DependentUpon>FormFiltrosClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormFiltrosClientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormFiltrosProvee.Designer.vb">
       <DependentUpon>FormFiltrosProvee.vb</DependentUpon>
     </Compile>
@@ -90,6 +108,12 @@
       <DependentUpon>FormProveedores.vb</DependentUpon>
     </Compile>
     <Compile Include="FormProveedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTipoIva.Designer.vb">
+      <DependentUpon>FormTipoIva.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormTipoIva.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmAuxiliar.Designer.vb">
@@ -104,6 +128,12 @@
     <Compile Include="frmAuxiliarProveedores.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmAuxiliarTipoIva.Designer.vb">
+      <DependentUpon>FrmAuxiliarTipoIva.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAuxiliarTipoIva.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmFiltros.designer.vb">
       <DependentUpon>FrmFiltros.vb</DependentUpon>
     </Compile>
@@ -115,6 +145,11 @@
     </Compile>
     <Compile Include="FrmProductos.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion_comercialDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Gestion_comercialDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -137,17 +172,32 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAuxiliarClientes.resx">
+      <DependentUpon>FormAuxiliarClientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormClientes.resx">
+      <DependentUpon>FormClientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFiltrosClientes.resx">
+      <DependentUpon>FormFiltrosClientes.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormFiltrosProvee.resx">
       <DependentUpon>FormFiltrosProvee.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormProveedores.resx">
       <DependentUpon>FormProveedores.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormTipoIva.resx">
+      <DependentUpon>FormTipoIva.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAuxiliar.resx">
       <DependentUpon>FrmAuxiliar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAuxiliarProveedores.resx">
       <DependentUpon>frmAuxiliarProveedores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAuxiliarTipoIva.resx">
+      <DependentUpon>FrmAuxiliarTipoIva.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFiltros.resx">
       <DependentUpon>FrmFiltros.vb</DependentUpon>
@@ -163,6 +213,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Gestion_comercialDataSet.xsc">
+      <DependentUpon>Gestion_comercialDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Gestion_comercialDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Gestion_comercialDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Gestion_comercialDataSet.xss">
+      <DependentUpon>Gestion_comercialDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -173,6 +234,11 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Gestion comercial.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

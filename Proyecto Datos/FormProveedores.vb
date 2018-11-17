@@ -8,7 +8,7 @@ Public Class FormProveedores
 
         CnnGestion = New OleDbConnection _
         ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        "L:\DesenvolvementoInterfaces\proyectos visual studio\Proyecto Datos\Gestion comercial.mdb")
+        "C:\Users\Malocho\proyectos_visual_studio\source\repos\ProyectoDatos\Gestion comercial.mdb")
         DtaProveedores = New OleDbDataAdapter("Select * from Proveedores order by Codigo", CnnGestion)
         DtsMProveedores = New DataSet
         DtaProveedores.Fill(DtsMProveedores, "Provee")
