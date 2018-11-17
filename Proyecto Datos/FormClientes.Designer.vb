@@ -72,6 +72,8 @@ Partial Class FormClientes
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.dateTimeFechaAlta = New System.Windows.Forms.DateTimePicker()
+        Me.txtDireccion = New System.Windows.Forms.TextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -287,7 +289,7 @@ Partial Class FormClientes
         'txtEmail
         '
         Me.txtEmail.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.txtEmail.Location = New System.Drawing.Point(345, 282)
+        Me.txtEmail.Location = New System.Drawing.Point(345, 309)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.ReadOnly = True
         Me.txtEmail.Size = New System.Drawing.Size(100, 20)
@@ -297,7 +299,7 @@ Partial Class FormClientes
         'txtFax
         '
         Me.txtFax.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.txtFax.Location = New System.Drawing.Point(345, 253)
+        Me.txtFax.Location = New System.Drawing.Point(345, 280)
         Me.txtFax.Name = "txtFax"
         Me.txtFax.ReadOnly = True
         Me.txtFax.Size = New System.Drawing.Size(100, 20)
@@ -307,7 +309,7 @@ Partial Class FormClientes
         'txtTlfn
         '
         Me.txtTlfn.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.txtTlfn.Location = New System.Drawing.Point(345, 223)
+        Me.txtTlfn.Location = New System.Drawing.Point(345, 250)
         Me.txtTlfn.Name = "txtTlfn"
         Me.txtTlfn.ReadOnly = True
         Me.txtTlfn.Size = New System.Drawing.Size(100, 20)
@@ -317,7 +319,7 @@ Partial Class FormClientes
         'txtProvincia
         '
         Me.txtProvincia.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.txtProvincia.Location = New System.Drawing.Point(345, 193)
+        Me.txtProvincia.Location = New System.Drawing.Point(345, 220)
         Me.txtProvincia.Name = "txtProvincia"
         Me.txtProvincia.ReadOnly = True
         Me.txtProvincia.Size = New System.Drawing.Size(100, 20)
@@ -327,7 +329,7 @@ Partial Class FormClientes
         'txtPoblacion
         '
         Me.txtPoblacion.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.txtPoblacion.Location = New System.Drawing.Point(345, 160)
+        Me.txtPoblacion.Location = New System.Drawing.Point(345, 187)
         Me.txtPoblacion.Name = "txtPoblacion"
         Me.txtPoblacion.ReadOnly = True
         Me.txtPoblacion.Size = New System.Drawing.Size(100, 20)
@@ -337,7 +339,7 @@ Partial Class FormClientes
         'txtCodPost
         '
         Me.txtCodPost.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.txtCodPost.Location = New System.Drawing.Point(345, 128)
+        Me.txtCodPost.Location = New System.Drawing.Point(345, 155)
         Me.txtCodPost.Name = "txtCodPost"
         Me.txtCodPost.ReadOnly = True
         Me.txtCodPost.Size = New System.Drawing.Size(100, 20)
@@ -375,7 +377,7 @@ Partial Class FormClientes
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(101, 285)
+        Me.Label9.Location = New System.Drawing.Point(101, 312)
         Me.Label9.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(35, 13)
@@ -385,7 +387,7 @@ Partial Class FormClientes
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(101, 256)
+        Me.Label8.Location = New System.Drawing.Point(101, 283)
         Me.Label8.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(27, 13)
@@ -395,7 +397,7 @@ Partial Class FormClientes
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(101, 226)
+        Me.Label7.Location = New System.Drawing.Point(101, 253)
         Me.Label7.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(55, 13)
@@ -405,7 +407,7 @@ Partial Class FormClientes
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(101, 194)
+        Me.Label6.Location = New System.Drawing.Point(101, 221)
         Me.Label6.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(54, 13)
@@ -415,7 +417,7 @@ Partial Class FormClientes
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(101, 163)
+        Me.Label5.Location = New System.Drawing.Point(101, 190)
         Me.Label5.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(60, 13)
@@ -425,7 +427,7 @@ Partial Class FormClientes
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(101, 131)
+        Me.Label4.Location = New System.Drawing.Point(101, 158)
         Me.Label4.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(72, 13)
@@ -465,7 +467,7 @@ Partial Class FormClientes
         'txtCodBanc
         '
         Me.txtCodBanc.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.txtCodBanc.Location = New System.Drawing.Point(345, 344)
+        Me.txtCodBanc.Location = New System.Drawing.Point(345, 371)
         Me.txtCodBanc.Name = "txtCodBanc"
         Me.txtCodBanc.ReadOnly = True
         Me.txtCodBanc.Size = New System.Drawing.Size(100, 20)
@@ -475,7 +477,7 @@ Partial Class FormClientes
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(101, 347)
+        Me.Label13.Location = New System.Drawing.Point(101, 374)
         Me.Label13.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(77, 13)
@@ -485,7 +487,7 @@ Partial Class FormClientes
         'txtCodSucur
         '
         Me.txtCodSucur.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.txtCodSucur.Location = New System.Drawing.Point(345, 377)
+        Me.txtCodSucur.Location = New System.Drawing.Point(345, 404)
         Me.txtCodSucur.Name = "txtCodSucur"
         Me.txtCodSucur.ReadOnly = True
         Me.txtCodSucur.Size = New System.Drawing.Size(100, 20)
@@ -495,7 +497,7 @@ Partial Class FormClientes
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(101, 380)
+        Me.Label14.Location = New System.Drawing.Point(101, 407)
         Me.Label14.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(87, 13)
@@ -505,7 +507,7 @@ Partial Class FormClientes
         'txtDireccEnvio
         '
         Me.txtDireccEnvio.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.txtDireccEnvio.Location = New System.Drawing.Point(345, 410)
+        Me.txtDireccEnvio.Location = New System.Drawing.Point(345, 437)
         Me.txtDireccEnvio.Name = "txtDireccEnvio"
         Me.txtDireccEnvio.ReadOnly = True
         Me.txtDireccEnvio.Size = New System.Drawing.Size(100, 20)
@@ -515,7 +517,7 @@ Partial Class FormClientes
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(101, 413)
+        Me.Label15.Location = New System.Drawing.Point(101, 440)
         Me.Label15.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(101, 13)
@@ -525,7 +527,7 @@ Partial Class FormClientes
         'txtFormaPago
         '
         Me.txtFormaPago.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.txtFormaPago.Location = New System.Drawing.Point(345, 440)
+        Me.txtFormaPago.Location = New System.Drawing.Point(345, 467)
         Me.txtFormaPago.Name = "txtFormaPago"
         Me.txtFormaPago.ReadOnly = True
         Me.txtFormaPago.Size = New System.Drawing.Size(100, 20)
@@ -535,7 +537,7 @@ Partial Class FormClientes
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(101, 443)
+        Me.Label16.Location = New System.Drawing.Point(101, 470)
         Me.Label16.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(81, 13)
@@ -545,7 +547,7 @@ Partial Class FormClientes
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(101, 317)
+        Me.Label10.Location = New System.Drawing.Point(101, 344)
         Me.Label10.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(61, 13)
@@ -554,16 +556,38 @@ Partial Class FormClientes
         '
         'dateTimeFechaAlta
         '
-        Me.dateTimeFechaAlta.Location = New System.Drawing.Point(345, 311)
+        Me.dateTimeFechaAlta.Location = New System.Drawing.Point(345, 338)
         Me.dateTimeFechaAlta.Name = "dateTimeFechaAlta"
         Me.dateTimeFechaAlta.Size = New System.Drawing.Size(200, 20)
         Me.dateTimeFechaAlta.TabIndex = 58
+        '
+        'txtDireccion
+        '
+        Me.txtDireccion.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.txtDireccion.Location = New System.Drawing.Point(345, 128)
+        Me.txtDireccion.Name = "txtDireccion"
+        Me.txtDireccion.ReadOnly = True
+        Me.txtDireccion.Size = New System.Drawing.Size(100, 20)
+        Me.txtDireccion.TabIndex = 60
+        Me.txtDireccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(101, 131)
+        Me.Label17.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(58, 13)
+        Me.Label17.TabIndex = 59
+        Me.Label17.Text = "Dirección: "
         '
         'FormClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1247, 842)
+        Me.Controls.Add(Me.txtDireccion)
+        Me.Controls.Add(Me.Label17)
         Me.Controls.Add(Me.dateTimeFechaAlta)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.txtFormaPago)
@@ -655,4 +679,6 @@ Partial Class FormClientes
     Friend WithEvents Label16 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents dateTimeFechaAlta As DateTimePicker
+    Friend WithEvents txtDireccion As TextBox
+    Friend WithEvents Label17 As Label
 End Class

@@ -44,16 +44,16 @@ Partial Class FormAuxiliarClientes
         Me.TxtNif = New System.Windows.Forms.TextBox()
         Me.lblCodBanc = New System.Windows.Forms.Label()
         Me.lblCodSucursal = New System.Windows.Forms.Label()
-        Me.LblCodProvee = New System.Windows.Forms.Label()
+        Me.LblCodCliente = New System.Windows.Forms.Label()
         Me.lblProvincia = New System.Windows.Forms.Label()
         Me.lblPoblacion = New System.Windows.Forms.Label()
         Me.lblCodPost = New System.Windows.Forms.Label()
         Me.lblDireccion = New System.Windows.Forms.Label()
         Me.lblNombre = New System.Windows.Forms.Label()
         Me.lblNif = New System.Windows.Forms.Label()
-        Me.LblTCodP = New System.Windows.Forms.Label()
-        Me.txtDireccEnvio = New System.Windows.Forms.TextBox()
+        Me.LblTCodC = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.comboDirEnvio = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'BtnCancelar
@@ -259,12 +259,12 @@ Partial Class FormAuxiliarClientes
         Me.lblCodSucursal.TabIndex = 76
         Me.lblCodSucursal.Text = "Código Sucursal:"
         '
-        'LblCodProvee
+        'LblCodCliente
         '
-        Me.LblCodProvee.Location = New System.Drawing.Point(365, 34)
-        Me.LblCodProvee.Name = "LblCodProvee"
-        Me.LblCodProvee.Size = New System.Drawing.Size(83, 24)
-        Me.LblCodProvee.TabIndex = 75
+        Me.LblCodCliente.Location = New System.Drawing.Point(365, 34)
+        Me.LblCodCliente.Name = "LblCodCliente"
+        Me.LblCodCliente.Size = New System.Drawing.Size(83, 24)
+        Me.LblCodCliente.TabIndex = 75
         '
         'lblProvincia
         '
@@ -326,24 +326,15 @@ Partial Class FormAuxiliarClientes
         Me.lblNif.TabIndex = 69
         Me.lblNif.Text = "NIF:"
         '
-        'LblTCodP
+        'LblTCodC
         '
-        Me.LblTCodP.AutoSize = True
-        Me.LblTCodP.Location = New System.Drawing.Point(150, 34)
-        Me.LblTCodP.Margin = New System.Windows.Forms.Padding(11, 0, 11, 0)
-        Me.LblTCodP.Name = "LblTCodP"
-        Me.LblTCodP.Size = New System.Drawing.Size(95, 13)
-        Me.LblTCodP.TabIndex = 68
-        Me.LblTCodP.Text = "Código Proveedor:"
-        '
-        'txtDireccEnvio
-        '
-        Me.txtDireccEnvio.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.txtDireccEnvio.Location = New System.Drawing.Point(367, 459)
-        Me.txtDireccEnvio.Name = "txtDireccEnvio"
-        Me.txtDireccEnvio.Size = New System.Drawing.Size(100, 20)
-        Me.txtDireccEnvio.TabIndex = 97
-        Me.txtDireccEnvio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.LblTCodC.AutoSize = True
+        Me.LblTCodC.Location = New System.Drawing.Point(150, 34)
+        Me.LblTCodC.Margin = New System.Windows.Forms.Padding(11, 0, 11, 0)
+        Me.LblTCodC.Name = "LblTCodC"
+        Me.LblTCodC.Size = New System.Drawing.Size(95, 13)
+        Me.LblTCodC.TabIndex = 68
+        Me.LblTCodC.Text = "Código Proveedor:"
         '
         'Label1
         '
@@ -355,12 +346,21 @@ Partial Class FormAuxiliarClientes
         Me.Label1.TabIndex = 96
         Me.Label1.Text = "Dirección de envío:"
         '
+        'comboDirEnvio
+        '
+        Me.comboDirEnvio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.comboDirEnvio.FormattingEnabled = True
+        Me.comboDirEnvio.Location = New System.Drawing.Point(367, 454)
+        Me.comboDirEnvio.Name = "comboDirEnvio"
+        Me.comboDirEnvio.Size = New System.Drawing.Size(100, 21)
+        Me.comboDirEnvio.TabIndex = 97
+        '
         'FormAuxiliarClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(909, 587)
-        Me.Controls.Add(Me.txtDireccEnvio)
+        Me.Controls.Add(Me.comboDirEnvio)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.comboFormaPago)
         Me.Controls.Add(Me.lblCodFormaPago)
@@ -382,14 +382,14 @@ Partial Class FormAuxiliarClientes
         Me.Controls.Add(Me.TxtNif)
         Me.Controls.Add(Me.lblCodBanc)
         Me.Controls.Add(Me.lblCodSucursal)
-        Me.Controls.Add(Me.LblCodProvee)
+        Me.Controls.Add(Me.LblCodCliente)
         Me.Controls.Add(Me.lblProvincia)
         Me.Controls.Add(Me.lblPoblacion)
         Me.Controls.Add(Me.lblCodPost)
         Me.Controls.Add(Me.lblDireccion)
         Me.Controls.Add(Me.lblNombre)
         Me.Controls.Add(Me.lblNif)
-        Me.Controls.Add(Me.LblTCodP)
+        Me.Controls.Add(Me.LblTCodC)
         Me.Controls.Add(Me.BtnCancelar)
         Me.Controls.Add(Me.BtnAceptar)
         Me.Name = "FormAuxiliarClientes"
@@ -421,14 +421,14 @@ Partial Class FormAuxiliarClientes
     Friend WithEvents TxtNif As TextBox
     Friend WithEvents lblCodBanc As Label
     Friend WithEvents lblCodSucursal As Label
-    Friend WithEvents LblCodProvee As Label
+    Friend WithEvents LblCodCliente As Label
     Friend WithEvents lblProvincia As Label
     Friend WithEvents lblPoblacion As Label
     Friend WithEvents lblCodPost As Label
     Friend WithEvents lblDireccion As Label
     Friend WithEvents lblNombre As Label
     Friend WithEvents lblNif As Label
-    Friend WithEvents LblTCodP As Label
-    Friend WithEvents txtDireccEnvio As TextBox
+    Friend WithEvents LblTCodC As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents comboDirEnvio As ComboBox
 End Class

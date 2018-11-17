@@ -12,7 +12,7 @@ Public Class FormProveedores
         DtaProveedores = New OleDbDataAdapter("Select * from Proveedores order by Codigo", CnnGestion)
         DtsMProveedores = New DataSet
         DtaProveedores.Fill(DtsMProveedores, "Provee")
-        Dim cmbProveedores As New OleDbCommandBuilder(DtaProveedores)
+        'Dim cmbProveedores As New OleDbCommandBuilder(DtaProveedores)
 
         DtaSucursales = New OleDbDataAdapter("Select * from Sucursales order by CodSuc", CnnGestion)
         DtaSucursales.Fill(DtsMProveedores, "Sucursales")

@@ -86,6 +86,12 @@
     <Compile Include="FormAuxiliarClientes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormAuxiliarFormasPago.Designer.vb">
+      <DependentUpon>FormAuxiliarFormasPago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAuxiliarFormasPago.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormClientes.Designer.vb">
       <DependentUpon>FormClientes.vb</DependentUpon>
     </Compile>
@@ -102,6 +108,18 @@
       <DependentUpon>FormFiltrosProvee.vb</DependentUpon>
     </Compile>
     <Compile Include="FormFiltrosProvee.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFormasPago.Designer.vb">
+      <DependentUpon>FormFormasPago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormFormasPago.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenu.Designer.vb">
+      <DependentUpon>FormMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormMenu.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormProveedores.Designer.vb">
@@ -175,6 +193,9 @@
     <EmbeddedResource Include="FormAuxiliarClientes.resx">
       <DependentUpon>FormAuxiliarClientes.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAuxiliarFormasPago.resx">
+      <DependentUpon>FormAuxiliarFormasPago.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormClientes.resx">
       <DependentUpon>FormClientes.vb</DependentUpon>
     </EmbeddedResource>
@@ -183,6 +204,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormFiltrosProvee.resx">
       <DependentUpon>FormFiltrosProvee.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFormasPago.resx">
+      <DependentUpon>FormFormasPago.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMenu.resx">
+      <DependentUpon>FormMenu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormProveedores.resx">
       <DependentUpon>FormProveedores.vb</DependentUpon>
