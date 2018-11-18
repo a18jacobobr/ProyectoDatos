@@ -25,13 +25,13 @@ Partial Class FormAuxiliarFormasPago
         Me.BtnCancelar = New System.Windows.Forms.Button()
         Me.BtnAceptar = New System.Windows.Forms.Button()
         Me.txtDescipcion = New System.Windows.Forms.TextBox()
-        Me.txtCodFPago = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtCadencia = New System.Windows.Forms.TextBox()
         Me.txtPlazos = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.lblMuestraCodFormaPago = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'BtnCancelar
@@ -61,14 +61,6 @@ Partial Class FormAuxiliarFormasPago
         Me.txtDescipcion.Size = New System.Drawing.Size(100, 20)
         Me.txtDescipcion.TabIndex = 60
         Me.txtDescipcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'txtCodFPago
-        '
-        Me.txtCodFPago.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.txtCodFPago.Location = New System.Drawing.Point(448, 94)
-        Me.txtCodFPago.Name = "txtCodFPago"
-        Me.txtCodFPago.Size = New System.Drawing.Size(100, 20)
-        Me.txtCodFPago.TabIndex = 59
         '
         'Label3
         '
@@ -127,11 +119,21 @@ Partial Class FormAuxiliarFormasPago
         Me.Label4.TabIndex = 63
         Me.Label4.Text = "Plazos:"
         '
+        'lblMuestraCodFormaPago
+        '
+        Me.lblMuestraCodFormaPago.AutoSize = True
+        Me.lblMuestraCodFormaPago.Location = New System.Drawing.Point(445, 94)
+        Me.lblMuestraCodFormaPago.Margin = New System.Windows.Forms.Padding(11, 0, 11, 0)
+        Me.lblMuestraCodFormaPago.Name = "lblMuestraCodFormaPago"
+        Me.lblMuestraCodFormaPago.Size = New System.Drawing.Size(0, 13)
+        Me.lblMuestraCodFormaPago.TabIndex = 67
+        '
         'FormAuxiliarFormasPago
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.lblMuestraCodFormaPago)
         Me.Controls.Add(Me.txtCadencia)
         Me.Controls.Add(Me.txtPlazos)
         Me.Controls.Add(Me.Label1)
@@ -139,7 +141,6 @@ Partial Class FormAuxiliarFormasPago
         Me.Controls.Add(Me.BtnCancelar)
         Me.Controls.Add(Me.BtnAceptar)
         Me.Controls.Add(Me.txtDescipcion)
-        Me.Controls.Add(Me.txtCodFPago)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Name = "FormAuxiliarFormasPago"
@@ -152,11 +153,11 @@ Partial Class FormAuxiliarFormasPago
     Friend WithEvents BtnCancelar As Button
     Friend WithEvents BtnAceptar As Button
     Friend WithEvents txtDescipcion As TextBox
-    Friend WithEvents txtCodFPago As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents txtCadencia As TextBox
     Friend WithEvents txtPlazos As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label4 As Label
+    Friend WithEvents lblMuestraCodFormaPago As Label
 End Class

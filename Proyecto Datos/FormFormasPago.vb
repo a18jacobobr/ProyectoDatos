@@ -45,7 +45,7 @@ Public Class FormFormasPago
     End Sub
     Private Sub PasarDatos(FormularioDestino As FormAuxiliarFormasPago)
         With FormularioDestino
-            .txtCodFPago.Text = txtCodFPago.Text
+            .lblMuestraCodFormaPago.Text = txtCodFPago.Text
             .txtDescipcion.Text = txtDescipcion.Text
             .txtPlazos.Text = txtPlazos.Text
             .txtCadencia.Text = txtCadencia.Text
@@ -63,7 +63,7 @@ Public Class FormFormasPago
         End If
         Dim fFormaPago As DataRow
         fFormaPago = DtsMFormasPago.Tables("FormasPago").NewRow()        'crea nueva columna en el dataset
-        fFormaPago("Codigo") = ObtenerUltimoCodigo()                'pilla el ultimo ID
+        fFormaPago("CodFPago") = ObtenerUltimoCodigo()                'pilla el ultimo ID
         CargarDatos(FrmNuevo, fFormaPago)                           'carga los datos del auxiliar
         DtsMFormasPago.Tables("FormasPago").Rows.Add(fFormaPago)         'añade el row
         DtaMFormasPago.Update(DtsMFormasPago.Tables("FormasPago"))
@@ -125,7 +125,7 @@ Public Class FormFormasPago
     Private Sub CargarDatos(FormularioOrigen As FormAuxiliarFormasPago, fila As DataRow)
         With FormularioOrigen
 
-            fila("CodFPago") = .txtCodFPago.Text
+            fila("CodFPago") = .lblMuestraCodFormaPago.Text
             fila("Descrip") = .txtDescipcion.Text
             fila("Plazos") = .txtPlazos.Text
             fila("Cadencia") = .txtCadencia.Text
@@ -141,7 +141,7 @@ Public Class FormFormasPago
     'End Sub
 
     Private Function ObtenerUltimoCodigo() As Short
-        Dim cmdultimo As New OleDbCommand("select max(Codigo) from FormasPago", CnnGestion)
+        Dim cmdultimo As New OleDbCommand("select max(CodFPago) from FormasPago", CnnGestion)
         Dim ultimo As Object
         Dim ultimoCod As Short
         CnnGestion.Open()

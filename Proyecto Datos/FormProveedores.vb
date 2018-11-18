@@ -110,8 +110,8 @@ Public Class FormProveedores
             .txtEmail.Text = txtEmail.Text
             .dateTimeFechaAlta.Value = dateTimeFechaAlltaProv.Value
             MostrarValorEnCombo(DtsMProveedores.Tables("Provee"), "CodBan", .comboCodBanc, txtCodBanc.Text)             'metodo en procedimientos y datos globales
-            MostrarValorEnCombo(DtsMProveedores.Tables("Provee"), "CodSuc", .comboCodSucursal, txtCodSucursal.Text)
-            MostrarValorEnCombo(DtsMProveedores.Tables("Provee"), "CodFPago", .comboFormaPago, txtCodFormaPago.Text)
+            MostrarValorEnCombo(DtsMProveedores.Tables("Sucursales"), "CodSuc", .comboCodSucursal, txtCodSucursal.Text)
+            MostrarValorEnCombo(DtsMProveedores.Tables("FormasPago"), "CodFPago", .comboFormaPago, txtCodFormaPago.Text)
         End With
 
     End Sub

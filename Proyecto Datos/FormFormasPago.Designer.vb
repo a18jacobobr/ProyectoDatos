@@ -172,6 +172,7 @@ Partial Class FormFormasPago
         Me.txtCadencia.ForeColor = System.Drawing.Color.RoyalBlue
         Me.txtCadencia.Location = New System.Drawing.Point(470, 256)
         Me.txtCadencia.Name = "txtCadencia"
+        Me.txtCadencia.ReadOnly = True
         Me.txtCadencia.Size = New System.Drawing.Size(100, 20)
         Me.txtCadencia.TabIndex = 106
         Me.txtCadencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -181,6 +182,7 @@ Partial Class FormFormasPago
         Me.txtPlazos.ForeColor = System.Drawing.Color.RoyalBlue
         Me.txtPlazos.Location = New System.Drawing.Point(470, 218)
         Me.txtPlazos.Name = "txtPlazos"
+        Me.txtPlazos.ReadOnly = True
         Me.txtPlazos.Size = New System.Drawing.Size(100, 20)
         Me.txtPlazos.TabIndex = 105
         '
@@ -209,6 +211,7 @@ Partial Class FormFormasPago
         Me.txtDescipcion.ForeColor = System.Drawing.Color.RoyalBlue
         Me.txtDescipcion.Location = New System.Drawing.Point(470, 182)
         Me.txtDescipcion.Name = "txtDescipcion"
+        Me.txtDescipcion.ReadOnly = True
         Me.txtDescipcion.Size = New System.Drawing.Size(100, 20)
         Me.txtDescipcion.TabIndex = 102
         Me.txtDescipcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -218,6 +221,7 @@ Partial Class FormFormasPago
         Me.txtCodFPago.ForeColor = System.Drawing.Color.RoyalBlue
         Me.txtCodFPago.Location = New System.Drawing.Point(470, 144)
         Me.txtCodFPago.Name = "txtCodFPago"
+        Me.txtCodFPago.ReadOnly = True
         Me.txtCodFPago.Size = New System.Drawing.Size(100, 20)
         Me.txtCodFPago.TabIndex = 101
         '

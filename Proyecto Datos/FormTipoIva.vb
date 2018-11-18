@@ -45,7 +45,7 @@ Public Class FormTipoIva
     End Sub
     Private Sub PasarDatos(FormularioDestino As FrmAuxiliarTipoIva)
         With FormularioDestino
-            .txtTipoIva.Text = TxtTipoIva.Text
+            .lblMuestraTipoIva.Text = TxtTipoIva.Text
             .txtPorcentaje.Text = txtPorcentaje.Text
             ' MostrarValorEnCombo(DtsMProveedores.Tables("Provee"), "CodBan", .comboCodBanc, txtCodBanc.Text)             'metodo en procedimientos y datos globales
         End With
@@ -56,12 +56,14 @@ Public Class FormTipoIva
         Dim FrmNuevo As New FrmAuxiliarTipoIva
         'enlaza los combos con los campos existentes en la base de datos
         FrmNuevo.Text = "Nuevo Tipo Iva"
+        FrmNuevo.lblTipoIva.Visible = False
+        FrmNuevo.lblMuestraTipoIva.Visible = False
         If FrmNuevo.ShowDialog = DialogResult.Cancel Then
             Exit Sub
         End If
         Dim fTipoIva As DataRow
         fTipoIva = DtsMTiposIva.Tables("TipoIva").NewRow()        'crea nueva columna en el dataset
-        fTipoIva("Codigo") = ObtenerUltimoCodigo()                'pilla el ultimo ID
+        fTipoIva("TipoIva") = ObtenerUltimoCodigo()                'pilla el ultimo ID
         CargarDatos(FrmNuevo, fTipoIva)                           'carga los datos del auxiliar
         DtsMTiposIva.Tables("TipoIva").Rows.Add(fTipoIva)         'añade el row
         DtaMTiposIva.Update(DtsMTiposIva.Tables("TipoIva"))
@@ -123,8 +125,8 @@ Public Class FormTipoIva
     Private Sub CargarDatos(FormularioOrigen As FrmAuxiliarTipoIva, fila As DataRow)
         With FormularioOrigen
 
-            fila("TipoIva") = .txtTipoIva.Text
-            fila("Porcentaje") = .txtPorcentaje.Text
+            fila("TipoIva") = CShort(.lblMuestraTipoIva.Text)
+            fila("Porcentaje") = CInt(.txtPorcentaje.Text)
         End With
 
     End Sub
@@ -137,7 +139,7 @@ Public Class FormTipoIva
     'End Sub
 
     Private Function ObtenerUltimoCodigo() As Short
-        Dim cmdultimo As New OleDbCommand("select max(Codigo) from TiposIva", CnnGestion)
+        Dim cmdultimo As New OleDbCommand("select max(TipoIva) from TiposIva", CnnGestion)
         Dim ultimo As Object
         Dim ultimoCod As Short
         CnnGestion.Open()
@@ -152,10 +154,10 @@ Public Class FormTipoIva
         Return ultimoCod
     End Function
 
-    ' Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-    'PictureBox1.Visible = Not PictureBox1.Visible
+    'Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+    '   PictureBox1.Visible = Not PictureBox1.Visible
 
-    ' End Sub
+    'End Sub
 
 
 

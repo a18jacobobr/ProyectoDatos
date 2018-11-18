@@ -25,9 +25,9 @@ Partial Class FrmAuxiliarTipoIva
         Me.BtnCancelar = New System.Windows.Forms.Button()
         Me.BtnAceptar = New System.Windows.Forms.Button()
         Me.txtPorcentaje = New System.Windows.Forms.TextBox()
-        Me.txtTipoIva = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblTipoIva = New System.Windows.Forms.Label()
+        Me.lblMuestraTipoIva = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'BtnCancelar
@@ -58,14 +58,6 @@ Partial Class FrmAuxiliarTipoIva
         Me.txtPorcentaje.TabIndex = 47
         Me.txtPorcentaje.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'txtTipoIva
-        '
-        Me.txtTipoIva.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.txtTipoIva.Location = New System.Drawing.Point(285, 64)
-        Me.txtTipoIva.Name = "txtTipoIva"
-        Me.txtTipoIva.Size = New System.Drawing.Size(100, 20)
-        Me.txtTipoIva.TabIndex = 46
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -76,27 +68,36 @@ Partial Class FrmAuxiliarTipoIva
         Me.Label3.TabIndex = 37
         Me.Label3.Text = "Porcentaje:"
         '
-        'Label2
+        'lblTipoIva
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(67, 64)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(11, 0, 11, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(49, 13)
-        Me.Label2.TabIndex = 36
-        Me.Label2.Text = "Tipo Iva:"
+        Me.lblTipoIva.AutoSize = True
+        Me.lblTipoIva.Location = New System.Drawing.Point(67, 64)
+        Me.lblTipoIva.Margin = New System.Windows.Forms.Padding(11, 0, 11, 0)
+        Me.lblTipoIva.Name = "lblTipoIva"
+        Me.lblTipoIva.Size = New System.Drawing.Size(49, 13)
+        Me.lblTipoIva.TabIndex = 36
+        Me.lblTipoIva.Text = "Tipo Iva:"
+        '
+        'lblMuestraTipoIva
+        '
+        Me.lblMuestraTipoIva.AutoSize = True
+        Me.lblMuestraTipoIva.Location = New System.Drawing.Point(282, 64)
+        Me.lblMuestraTipoIva.Margin = New System.Windows.Forms.Padding(11, 0, 11, 0)
+        Me.lblMuestraTipoIva.Name = "lblMuestraTipoIva"
+        Me.lblMuestraTipoIva.Size = New System.Drawing.Size(0, 13)
+        Me.lblMuestraTipoIva.TabIndex = 57
         '
         'FrmAuxiliarTipoIva
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(886, 520)
+        Me.Controls.Add(Me.lblMuestraTipoIva)
         Me.Controls.Add(Me.BtnCancelar)
         Me.Controls.Add(Me.BtnAceptar)
         Me.Controls.Add(Me.txtPorcentaje)
-        Me.Controls.Add(Me.txtTipoIva)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.lblTipoIva)
         Me.Name = "FrmAuxiliarTipoIva"
         Me.Text = "FrmAuxiliarTipoIva"
         Me.ResumeLayout(False)
@@ -107,7 +108,7 @@ Partial Class FrmAuxiliarTipoIva
     Friend WithEvents BtnCancelar As Button
     Friend WithEvents BtnAceptar As Button
     Friend WithEvents txtPorcentaje As TextBox
-    Friend WithEvents txtTipoIva As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
+    Friend WithEvents lblTipoIva As Label
+    Friend WithEvents lblMuestraTipoIva As Label
 End Class

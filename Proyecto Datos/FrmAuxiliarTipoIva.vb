@@ -8,7 +8,7 @@
     End Sub
 
     Private Sub NumericosEnteros_KeyPress(sender As Object, e As KeyPressEventArgs) _
-        Handles txtPorcentaje.KeyPress, txtTipoIva.KeyPress
+        Handles txtPorcentaje.KeyPress
         Dim CajaTexto As System.Windows.Forms.TextBox
         CajaTexto = CType(sender, System.Windows.Forms.TextBox)
         Dim Validos As String = "0123456789" + Chr(8)
@@ -47,13 +47,13 @@
     'End Sub
 
     Private Sub ColorearCajasTexto_Enter(sender As Object, e As EventArgs) _
-        Handles txtTipoIva.Enter, txtPorcentaje.Enter
+        Handles txtPorcentaje.Enter
         sender.backcolor = Color.Aquamarine
 
     End Sub
 
     Private Sub TxtDescri_Leave(sender As Object, e As EventArgs) _
-        Handles txtTipoIva.Enter, txtPorcentaje.Enter
+        Handles txtPorcentaje.Enter
         sender.backcolor = Color.White
     End Sub
 End Class

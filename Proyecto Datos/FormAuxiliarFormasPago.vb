@@ -47,13 +47,13 @@
     'End Sub
 
     Private Sub ColorearCajasTexto_Enter(sender As Object, e As EventArgs) _
-        Handles txtCadencia.Enter, txtCodFPago.Enter, txtDescipcion.Enter, txtPlazos.Enter
+        Handles txtCadencia.Enter, txtDescipcion.Enter, txtPlazos.Enter
         sender.backcolor = Color.Aquamarine
 
     End Sub
 
     Private Sub TxtDescri_Leave(sender As Object, e As EventArgs) _
-        Handles txtCadencia.Enter, txtCodFPago.Enter, txtDescipcion.Enter, txtPlazos.Enter
+        Handles txtCadencia.Enter, txtDescipcion.Enter, txtPlazos.Enter
         sender.backcolor = Color.White
     End Sub
 End Class
