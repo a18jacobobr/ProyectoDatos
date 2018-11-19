@@ -1,6 +1,6 @@
 ﻿Public Class FormMenu
     Private Sub btnProductos_Click(sender As Object, e As EventArgs) Handles btnProductos.Click
-        Dim formulario As New FormProveedores
+        Dim formulario As New FrmProductos
         formulario.ShowDialog()
     End Sub
 

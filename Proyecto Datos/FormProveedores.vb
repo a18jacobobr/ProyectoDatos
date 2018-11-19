@@ -2,7 +2,7 @@
 Imports System.Data.OleDb
 Public Class FormProveedores
     Dim DtsMProveedores As DataSet
-    Dim DtaProveedores, DtaCPedidosC, DtaSucursales, DtaFormasPago As OleDbDataAdapter
+    Dim DtaProveedores, DtaCPedidosC, DtaSucursales, DtaFormasPago, DtaBancos As OleDbDataAdapter
     Public OperadoresString, OperadoresNumFec As String()
     Private Sub FrmProveedores_Load(sender As Object, e As EventArgs) Handles Me.Load
 
@@ -16,6 +16,9 @@ Public Class FormProveedores
 
         DtaSucursales = New OleDbDataAdapter("Select * from Sucursales order by CodSuc", CnnGestion)
         DtaSucursales.Fill(DtsMProveedores, "Sucursales")
+
+        DtaBancos = New OleDbDataAdapter("Select * from Bancos order by CodBanco", CnnGestion)
+        DtaBancos.Fill(DtsMProveedores, "Bancos")
 
         DtaFormasPago = New OleDbDataAdapter("Select * from FormasPago order by CodFPago", CnnGestion)
         DtaFormasPago.Fill(DtsMProveedores, "FormasPago")
@@ -107,6 +110,7 @@ Public Class FormProveedores
             .txtPoblacion.Text = txtPoblacion.Text
             .txtProvincia.Text = txtProvincia.Text
             .txtTelfn.Text = txtTlfn.Text
+            .txtFax.Text = txtFax.Text
             .txtEmail.Text = txtEmail.Text
             .dateTimeFechaAlta.Value = dateTimeFechaAlltaProv.Value
             MostrarValorEnCombo(DtsMProveedores.Tables("Provee"), "CodBan", .comboCodBanc, txtCodBanc.Text)             'metodo en procedimientos y datos globales
@@ -117,12 +121,12 @@ Public Class FormProveedores
     End Sub
     Private Sub EnlazarCombos(formauxM As frmAuxiliarProveedores)               'ENLAZAR LOS COMBOS, SON DEPENDIENTES EL UNO DEL OTRO y me falta por hacer
         With formauxM
-            .comboCodBanc.DataSource = DtsMProveedores.Tables("Sucursales")
-            .comboCodBanc.DisplayMember = "CodSuc"          'esto es lo que enseña
-            .comboCodBanc.ValueMember = "CodSuc"            'esto es lo que envía internamente
+            .comboCodBanc.DataSource = DtsMProveedores.Tables("Bancos")
+            .comboCodBanc.DisplayMember = "Nombre"          'esto es lo que enseña
+            .comboCodBanc.ValueMember = "CodBanco"           'esto es lo que envía internamente
             .comboCodSucursal.DataSource = DtsMProveedores.Tables("Sucursales")
-            .comboCodSucursal.DisplayMember = "CodBanco"
-            .comboCodSucursal.ValueMember = "CodBanco"
+            .comboCodSucursal.DisplayMember = "NombreSuc"
+            .comboCodSucursal.ValueMember = "CodSuc"
             .comboFormaPago.DataSource = DtsMProveedores.Tables("FormasPago")
             .comboFormaPago.DisplayMember = "Descrip"
             .comboFormaPago.ValueMember = "CodFPago"
@@ -172,7 +176,7 @@ Public Class FormProveedores
             fila("CodPos") = CSng(.txtCodPost.Text)
             fila("Poblac") = .txtPoblacion.Text
             fila("Tfno") = CSng(.txtTelfn.Text)
-            fila("fax") = CSng(.txtFax.Text)               'controlar valor num listo
+            fila("Fax") = CSng(.txtFax.Text)               'controlar valor num listo
             fila("email") = .txtEmail.Text
             fila("FecAlta") = .dateTimeFechaAlta.Value    'no se 
             fila("CodBan") = .comboCodBanc.SelectedValue

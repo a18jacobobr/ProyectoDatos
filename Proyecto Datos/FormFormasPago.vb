@@ -58,6 +58,8 @@ Public Class FormFormasPago
         Dim FrmNuevo As New FormAuxiliarFormasPago
         'enlaza los combos con los campos existentes en la base de datos
         FrmNuevo.Text = "Nueva forma de pago"
+        FrmNuevo.lblMuestraCodFormaPago.Visible = False
+        FrmNuevo.Label2.Visible = False
         If FrmNuevo.ShowDialog = DialogResult.Cancel Then
             Exit Sub
         End If

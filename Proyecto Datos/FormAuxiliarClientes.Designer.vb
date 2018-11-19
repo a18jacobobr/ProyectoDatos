@@ -36,8 +36,6 @@ Partial Class FormAuxiliarClientes
         Me.lblTlfn = New System.Windows.Forms.Label()
         Me.comboCodSucursal = New System.Windows.Forms.ComboBox()
         Me.comboCodBanc = New System.Windows.Forms.ComboBox()
-        Me.txtProvincia = New System.Windows.Forms.TextBox()
-        Me.txtPoblacion = New System.Windows.Forms.TextBox()
         Me.txtCodPost = New System.Windows.Forms.TextBox()
         Me.txtDireccion = New System.Windows.Forms.TextBox()
         Me.txtNombre = New System.Windows.Forms.TextBox()
@@ -54,6 +52,8 @@ Partial Class FormAuxiliarClientes
         Me.LblTCodC = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.comboDirEnvio = New System.Windows.Forms.ComboBox()
+        Me.comboPoblacion = New System.Windows.Forms.ComboBox()
+        Me.comboProvincia = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'BtnCancelar
@@ -185,24 +185,6 @@ Partial Class FormAuxiliarClientes
         Me.comboCodBanc.Name = "comboCodBanc"
         Me.comboCodBanc.Size = New System.Drawing.Size(100, 21)
         Me.comboCodBanc.TabIndex = 84
-        '
-        'txtProvincia
-        '
-        Me.txtProvincia.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.txtProvincia.Location = New System.Drawing.Point(368, 216)
-        Me.txtProvincia.Name = "txtProvincia"
-        Me.txtProvincia.Size = New System.Drawing.Size(100, 20)
-        Me.txtProvincia.TabIndex = 83
-        Me.txtProvincia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'txtPoblacion
-        '
-        Me.txtPoblacion.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.txtPoblacion.Location = New System.Drawing.Point(368, 187)
-        Me.txtPoblacion.Name = "txtPoblacion"
-        Me.txtPoblacion.Size = New System.Drawing.Size(100, 20)
-        Me.txtPoblacion.TabIndex = 82
-        Me.txtPoblacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtCodPost
         '
@@ -355,11 +337,31 @@ Partial Class FormAuxiliarClientes
         Me.comboDirEnvio.Size = New System.Drawing.Size(100, 21)
         Me.comboDirEnvio.TabIndex = 97
         '
+        'comboPoblacion
+        '
+        Me.comboPoblacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.comboPoblacion.FormattingEnabled = True
+        Me.comboPoblacion.Location = New System.Drawing.Point(367, 187)
+        Me.comboPoblacion.Name = "comboPoblacion"
+        Me.comboPoblacion.Size = New System.Drawing.Size(100, 21)
+        Me.comboPoblacion.TabIndex = 98
+        '
+        'comboProvincia
+        '
+        Me.comboProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.comboProvincia.FormattingEnabled = True
+        Me.comboProvincia.Location = New System.Drawing.Point(367, 215)
+        Me.comboProvincia.Name = "comboProvincia"
+        Me.comboProvincia.Size = New System.Drawing.Size(100, 21)
+        Me.comboProvincia.TabIndex = 99
+        '
         'FormAuxiliarClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(909, 587)
+        Me.Controls.Add(Me.comboProvincia)
+        Me.Controls.Add(Me.comboPoblacion)
         Me.Controls.Add(Me.comboDirEnvio)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.comboFormaPago)
@@ -374,8 +376,6 @@ Partial Class FormAuxiliarClientes
         Me.Controls.Add(Me.lblTlfn)
         Me.Controls.Add(Me.comboCodSucursal)
         Me.Controls.Add(Me.comboCodBanc)
-        Me.Controls.Add(Me.txtProvincia)
-        Me.Controls.Add(Me.txtPoblacion)
         Me.Controls.Add(Me.txtCodPost)
         Me.Controls.Add(Me.txtDireccion)
         Me.Controls.Add(Me.txtNombre)
@@ -413,8 +413,6 @@ Partial Class FormAuxiliarClientes
     Friend WithEvents lblTlfn As Label
     Friend WithEvents comboCodSucursal As ComboBox
     Friend WithEvents comboCodBanc As ComboBox
-    Friend WithEvents txtProvincia As TextBox
-    Friend WithEvents txtPoblacion As TextBox
     Friend WithEvents txtCodPost As TextBox
     Friend WithEvents txtDireccion As TextBox
     Friend WithEvents txtNombre As TextBox
@@ -431,4 +429,6 @@ Partial Class FormAuxiliarClientes
     Friend WithEvents LblTCodC As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents comboDirEnvio As ComboBox
+    Friend WithEvents comboPoblacion As ComboBox
+    Friend WithEvents comboProvincia As ComboBox
 End Class

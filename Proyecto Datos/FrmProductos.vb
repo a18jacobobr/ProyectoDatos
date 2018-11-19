@@ -7,7 +7,7 @@ Public Class FrmProductos
 
         CnnGestion = New OleDbConnection _
         ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        "C:\Users\Malocho\proyectos_visual_studio\source\repos\ProyectoDatos\Gestion comercial.mdb")
+        "L:\DesenvolvementoInterfaces\proyectos visual studio\Proyecto Datos\Gestion comercial.mdb")
         DtaProductos = New OleDbDataAdapter("Select * from Productos order by CodProd", CnnGestion)
         DtsMProductos = New DataSet
         DtaProductos.Fill(DtsMProductos, "Prod")

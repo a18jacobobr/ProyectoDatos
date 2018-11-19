@@ -13,4 +13,10 @@ Module Procedimientos_y_datos_globales
 
 
     End Sub
+
+    Public Sub dependeciaComb(dtsTabla As DataSet, tabla As String, cmb As ComboBox, filtrar As String)
+        dtsTabla.Tables(tabla).DefaultView.RowFilter = filtrar
+        cmb.DataSource = dtsTabla.Tables(tabla)
+    End Sub
+
 End Module

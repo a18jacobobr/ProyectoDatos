@@ -2,7 +2,7 @@
 Public Class FormClientes
 
     Dim DtsMClientes As DataSet
-    Dim DtaClientes, DtaCPedidosC, DtaSucursales, DtaFormasPago, DtaDirEnvio As OleDbDataAdapter
+    Dim DtaClientes, DtaCPedidosC, DtaSucursales, DtaFormasPago, DtaDirEnvio, DtaBancos As OleDbDataAdapter
     Public OperadoresString, OperadoresNumFec As String()
     Private Sub FrmCliente_Load(sender As Object, e As EventArgs) Handles Me.Load
 
@@ -16,6 +16,9 @@ Public Class FormClientes
 
         DtaSucursales = New OleDbDataAdapter("Select * from Sucursales order by CodSuc", CnnGestion)
         DtaSucursales.Fill(DtsMClientes, "Sucursales")
+
+        DtaBancos = New OleDbDataAdapter("Select * from Bancos order by CodBanco", CnnGestion)
+        DtaBancos.Fill(DtsMClientes, "Bancos")
 
         DtaFormasPago = New OleDbDataAdapter("Select * from FormasPago order by CodFPago", CnnGestion)
         DtaFormasPago.Fill(DtsMClientes, "FormasPago")
@@ -88,6 +91,7 @@ Public Class FormClientes
         EnlazarCombos(FrmModif)
         FrmModif.Text = "Modificar Cliente"
         PasarDatos(FrmModif)
+        FrmModif.setDataset(DtsMClientes)
         FrmModif.dateTimeFechaAlta.Enabled = False
         If FrmModif.ShowDialog = DialogResult.Cancel Then
             Exit Sub
@@ -110,6 +114,8 @@ Public Class FormClientes
             .txtCodPost.Text = txtCodPost.Text
             .txtPoblacion.Text = txtPoblacion.Text
             .txtProvincia.Text = txtProvincia.Text
+            .txtFax.Text = txtFax.Text
+            .txtEmail.Text = txtEmail.Text
             .txtTelfn.Text = txtTlfn.Text
             .txtEmail.Text = txtEmail.Text
             .dateTimeFechaAlta.Value = dateTimeFechaAlta.Value
@@ -122,12 +128,16 @@ Public Class FormClientes
     End Sub
     Private Sub EnlazarCombos(formauxM As FormAuxiliarClientes)               'ENLAZAR LOS COMBOS, SON DEPENDIENTES EL UNO DEL OTRO y me falta por hacer
         With formauxM
-            .comboCodBanc.DataSource = DtsMClientes.Tables("Sucursales")
-            .comboCodBanc.DisplayMember = "CodSuc"          'esto es lo que enseña
-            .comboCodBanc.ValueMember = "CodSuc"            'esto es lo que envía internamente
+            '.comboPoblacion.DataSource = DtsMClientes.Tables("Direccion")
+            '.comboProvincia.DisplayMember = "Direccion"
+            '.comboProvincia.ValueMember = "CodCli"
+            '.com
+            .comboCodBanc.DataSource = DtsMClientes.Tables("Bancos")
+            .comboCodBanc.DisplayMember = "Nombre"          'esto es lo que enseña
+            .comboCodBanc.ValueMember = "CodBanco"            'esto es lo que envía internamente
             .comboCodSucursal.DataSource = DtsMClientes.Tables("Sucursales")
-            .comboCodSucursal.DisplayMember = "CodBanco"
-            .comboCodSucursal.ValueMember = "CodBanco"
+            .comboCodSucursal.DisplayMember = "NombreSuc"
+            .comboCodSucursal.ValueMember = "CodSuc"
             .comboFormaPago.DataSource = DtsMClientes.Tables("FormasPago")
             .comboFormaPago.DisplayMember = "Descrip"
             .comboFormaPago.ValueMember = "CodFPago"

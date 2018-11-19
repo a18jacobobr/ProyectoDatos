@@ -1,5 +1,6 @@
 ﻿Public Class FormAuxiliarClientes
 
+    Dim dts As DataSet
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
         Me.DialogResult = DialogResult.OK
     End Sub
@@ -7,6 +8,7 @@
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
         Me.DialogResult = DialogResult.Cancel
     End Sub
+
 
     Private Sub NumericosEnteros_KeyPress(sender As Object, e As KeyPressEventArgs) _
         Handles txtTelfn.KeyPress, txtCodPost.KeyPress, txtFax.KeyPress
@@ -58,4 +60,12 @@
         sender.backcolor = Color.White
     End Sub
 
+    Private Sub comboCodBanc_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles comboCodBanc.SelectionChangeCommitted
+        Dim filter As String = "CodBanco = " & comboCodBanc.SelectedValue
+        dependeciaComb(dts, "Sucursales", comboCodSucursal, filter)
+    End Sub
+
+    Public Sub setDataset(data As DataSet)
+        dts = data
+    End Sub
 End Class
