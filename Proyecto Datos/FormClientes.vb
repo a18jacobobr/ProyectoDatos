@@ -8,11 +8,11 @@ Public Class FormClientes
 
         CnnGestion = New OleDbConnection _
             ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-            "C:\Users\Malocho\proyectos_visual_studio\source\repos\ProyectoDatos\Gestion comercial.mdb")
+            "L:\DesenvolvementoInterfaces\proyectos visual studio\Proyecto Datos\Gestion comercial.mdb")
         DtaClientes = New OleDbDataAdapter("Select * from Clientes order by Codigo", CnnGestion)
         DtsMClientes = New DataSet
         DtaClientes.Fill(DtsMClientes, "Clientes")
-        'Dim cmbProveedores As New OleDbCommandBuilder(DtaProveedores)
+        Dim cmbProveedores As New OleDbCommandBuilder(DtaClientes)      'permite modificar
 
         DtaSucursales = New OleDbDataAdapter("Select * from Sucursales order by CodSuc", CnnGestion)
         DtaSucursales.Fill(DtsMClientes, "Sucursales")

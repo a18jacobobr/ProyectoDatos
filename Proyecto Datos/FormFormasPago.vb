@@ -8,11 +8,11 @@ Public Class FormFormasPago
 
         CnnGestion = New OleDbConnection _
         ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        "C:\Users\Malocho\proyectos_visual_studio\source\repos\ProyectoDatos\Gestion comercial.mdb")
+        "L:\DesenvolvementoInterfaces\proyectos visual studio\Proyecto Datos\Gestion comercial.mdb")
         DtaMFormasPago = New OleDbDataAdapter("Select * from FormasPago order by CodFPago", CnnGestion)
         DtsMFormasPago = New DataSet
         DtaMFormasPago.Fill(DtsMFormasPago, "FormasPago")
-        'Dim cmbFormasPago As New OleDbCommandBuilder(DtaMFormasPago)
+        Dim cmbFormasPago As New OleDbCommandBuilder(DtaMFormasPago)        'permite modificar
 
 
         EnlazarControles()
@@ -125,7 +125,7 @@ Public Class FormFormasPago
     Private Sub CargarDatos(FormularioOrigen As FormAuxiliarFormasPago, fila As DataRow)
         With FormularioOrigen
 
-            fila("CodFPago") = .lblMuestraCodFormaPago.Text
+            'fila("CodFPago") = .lblMuestraCodFormaPago.Text
             fila("Descrip") = .txtDescipcion.Text
             fila("Plazos") = .txtPlazos.Text
             fila("Cadencia") = .txtCadencia.Text

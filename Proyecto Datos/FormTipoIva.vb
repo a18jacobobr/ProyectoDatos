@@ -10,11 +10,11 @@ Public Class FormTipoIva
 
         CnnGestion = New OleDbConnection _
         ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        "C:\Users\Malocho\proyectos_visual_studio\source\repos\ProyectoDatos\Gestion comercial.mdb")
+        "L:\DesenvolvementoInterfaces\proyectos visual studio\Proyecto Datos\Gestion comercial.mdb")
         DtaMTiposIva = New OleDbDataAdapter("Select * from TiposIva order by TipoIva", CnnGestion)
         DtsMTiposIva = New DataSet
         DtaMTiposIva.Fill(DtsMTiposIva, "TipoIva")
-        Dim cmbTiposIva As New OleDbCommandBuilder(DtaMTiposIva)
+        Dim cmbTiposIva As New OleDbCommandBuilder(DtaMTiposIva)        'permite modificar
 
 
         EnlazarControles()
@@ -124,8 +124,6 @@ Public Class FormTipoIva
 
     Private Sub CargarDatos(FormularioOrigen As FrmAuxiliarTipoIva, fila As DataRow)
         With FormularioOrigen
-
-            fila("TipoIva") = CShort(.lblMuestraTipoIva.Text)
             fila("Porcentaje") = CInt(.txtPorcentaje.Text)
         End With
 

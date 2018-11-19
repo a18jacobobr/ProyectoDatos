@@ -28,11 +28,12 @@ Partial Class FormMenu
         Me.btnProveedores = New System.Windows.Forms.Button()
         Me.btnTiposIva = New System.Windows.Forms.Button()
         Me.btnMetodosPago = New System.Windows.Forms.Button()
+        Me.btnClientes = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnProductos
         '
-        Me.btnProductos.Location = New System.Drawing.Point(133, 43)
+        Me.btnProductos.Location = New System.Drawing.Point(35, 24)
         Me.btnProductos.Name = "btnProductos"
         Me.btnProductos.Size = New System.Drawing.Size(239, 168)
         Me.btnProductos.TabIndex = 0
@@ -49,7 +50,7 @@ Partial Class FormMenu
         '
         'btnProveedores
         '
-        Me.btnProveedores.Location = New System.Drawing.Point(443, 43)
+        Me.btnProveedores.Location = New System.Drawing.Point(540, 24)
         Me.btnProveedores.Name = "btnProveedores"
         Me.btnProveedores.Size = New System.Drawing.Size(239, 168)
         Me.btnProveedores.TabIndex = 4
@@ -58,7 +59,7 @@ Partial Class FormMenu
         '
         'btnTiposIva
         '
-        Me.btnTiposIva.Location = New System.Drawing.Point(133, 234)
+        Me.btnTiposIva.Location = New System.Drawing.Point(35, 252)
         Me.btnTiposIva.Name = "btnTiposIva"
         Me.btnTiposIva.Size = New System.Drawing.Size(239, 168)
         Me.btnTiposIva.TabIndex = 5
@@ -67,18 +68,28 @@ Partial Class FormMenu
         '
         'btnMetodosPago
         '
-        Me.btnMetodosPago.Location = New System.Drawing.Point(443, 234)
+        Me.btnMetodosPago.Location = New System.Drawing.Point(540, 252)
         Me.btnMetodosPago.Name = "btnMetodosPago"
         Me.btnMetodosPago.Size = New System.Drawing.Size(239, 168)
         Me.btnMetodosPago.TabIndex = 6
         Me.btnMetodosPago.Text = "Métodos de pago"
         Me.btnMetodosPago.UseVisualStyleBackColor = True
         '
+        'btnClientes
+        '
+        Me.btnClientes.Location = New System.Drawing.Point(289, 132)
+        Me.btnClientes.Name = "btnClientes"
+        Me.btnClientes.Size = New System.Drawing.Size(239, 168)
+        Me.btnClientes.TabIndex = 7
+        Me.btnClientes.Text = "Clientes"
+        Me.btnClientes.UseVisualStyleBackColor = True
+        '
         'FormMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnClientes)
         Me.Controls.Add(Me.btnMetodosPago)
         Me.Controls.Add(Me.btnTiposIva)
         Me.Controls.Add(Me.btnProveedores)
@@ -95,4 +106,5 @@ Partial Class FormMenu
     Friend WithEvents btnProveedores As Button
     Friend WithEvents btnTiposIva As Button
     Friend WithEvents btnMetodosPago As Button
+    Friend WithEvents btnClientes As Button
 End Class
