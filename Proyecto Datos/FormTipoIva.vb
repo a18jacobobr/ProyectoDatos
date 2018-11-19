@@ -10,7 +10,7 @@ Public Class FormTipoIva
 
         CnnGestion = New OleDbConnection _
         ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        "L:\DesenvolvementoInterfaces\proyectos visual studio\Proyecto Datos\Gestion comercial.mdb")
+        "C:\Users\Malocho\proyectos_visual_studio\source\repos\ProyectoDatos\Gestion comercial.mdb")
         DtaMTiposIva = New OleDbDataAdapter("Select * from TiposIva order by TipoIva", CnnGestion)
         DtsMTiposIva = New DataSet
         DtaMTiposIva.Fill(DtsMTiposIva, "TipoIva")

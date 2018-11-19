@@ -50,13 +50,13 @@
     'End Sub
 
     Private Sub ColorearCajasTexto_Enter(sender As Object, e As EventArgs) _
-        Handles TxtNif.Enter, txtNombre.Enter, txtDireccion.Enter, txtCodPost.Enter, txtPoblacion.Enter, txtProvincia.Enter, txtTelfn.Enter, txtEmail.Enter, txtFax.Enter, dateTimeFechaAlta.Enter
+        Handles TxtNif.Enter, txtNombre.Enter, txtDireccion.Enter, txtCodPost.Enter, txtTelfn.Enter, txtEmail.Enter, txtFax.Enter, dateTimeFechaAlta.Enter
         sender.backcolor = Color.Aquamarine
 
     End Sub
 
     Private Sub TxtDescri_Leave(sender As Object, e As EventArgs) _
-        Handles TxtNif.Enter, txtNombre.Enter, txtDireccion.Enter, txtCodPost.Enter, txtPoblacion.Enter, txtProvincia.Enter, txtTelfn.Enter, txtEmail.Enter, txtFax.Enter, dateTimeFechaAlta.Enter
+        Handles TxtNif.Enter, txtNombre.Enter, txtDireccion.Enter, txtCodPost.Enter, txtTelfn.Enter, txtEmail.Enter, txtFax.Enter, dateTimeFechaAlta.Enter
         sender.backcolor = Color.White
     End Sub
 

@@ -26,8 +26,6 @@ Partial Class frmAuxiliarProveedores
         Me.BtnAceptar = New System.Windows.Forms.Button()
         Me.comboCodSucursal = New System.Windows.Forms.ComboBox()
         Me.comboCodBanc = New System.Windows.Forms.ComboBox()
-        Me.txtProvincia = New System.Windows.Forms.TextBox()
-        Me.txtPoblacion = New System.Windows.Forms.TextBox()
         Me.txtCodPost = New System.Windows.Forms.TextBox()
         Me.txtDireccion = New System.Windows.Forms.TextBox()
         Me.txtNombre = New System.Windows.Forms.TextBox()
@@ -52,6 +50,8 @@ Partial Class frmAuxiliarProveedores
         Me.dateTimeFechaAlta = New System.Windows.Forms.DateTimePicker()
         Me.comboFormaPago = New System.Windows.Forms.ComboBox()
         Me.lblCodFormaPago = New System.Windows.Forms.Label()
+        Me.comboProvincia = New System.Windows.Forms.ComboBox()
+        Me.comboPoblacion = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'BtnCancelar
@@ -90,24 +90,6 @@ Partial Class frmAuxiliarProveedores
         Me.comboCodBanc.Name = "comboCodBanc"
         Me.comboCodBanc.Size = New System.Drawing.Size(100, 21)
         Me.comboCodBanc.TabIndex = 52
-        '
-        'txtProvincia
-        '
-        Me.txtProvincia.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.txtProvincia.Location = New System.Drawing.Point(370, 187)
-        Me.txtProvincia.Name = "txtProvincia"
-        Me.txtProvincia.Size = New System.Drawing.Size(100, 20)
-        Me.txtProvincia.TabIndex = 51
-        Me.txtProvincia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'txtPoblacion
-        '
-        Me.txtPoblacion.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.txtPoblacion.Location = New System.Drawing.Point(370, 158)
-        Me.txtPoblacion.Name = "txtPoblacion"
-        Me.txtPoblacion.Size = New System.Drawing.Size(100, 20)
-        Me.txtPoblacion.TabIndex = 50
-        Me.txtPoblacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtCodPost
         '
@@ -334,11 +316,31 @@ Partial Class frmAuxiliarProveedores
         Me.lblCodFormaPago.TabIndex = 66
         Me.lblCodFormaPago.Text = "Forma de pago:"
         '
+        'comboProvincia
+        '
+        Me.comboProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.comboProvincia.FormattingEnabled = True
+        Me.comboProvincia.Location = New System.Drawing.Point(370, 186)
+        Me.comboProvincia.Name = "comboProvincia"
+        Me.comboProvincia.Size = New System.Drawing.Size(100, 21)
+        Me.comboProvincia.TabIndex = 69
+        '
+        'comboPoblacion
+        '
+        Me.comboPoblacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.comboPoblacion.FormattingEnabled = True
+        Me.comboPoblacion.Location = New System.Drawing.Point(370, 153)
+        Me.comboPoblacion.Name = "comboPoblacion"
+        Me.comboPoblacion.Size = New System.Drawing.Size(100, 21)
+        Me.comboPoblacion.TabIndex = 68
+        '
         'frmAuxiliarProveedores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1004, 551)
+        Me.Controls.Add(Me.comboProvincia)
+        Me.Controls.Add(Me.comboPoblacion)
         Me.Controls.Add(Me.comboFormaPago)
         Me.Controls.Add(Me.lblCodFormaPago)
         Me.Controls.Add(Me.dateTimeFechaAlta)
@@ -353,8 +355,6 @@ Partial Class frmAuxiliarProveedores
         Me.Controls.Add(Me.BtnAceptar)
         Me.Controls.Add(Me.comboCodSucursal)
         Me.Controls.Add(Me.comboCodBanc)
-        Me.Controls.Add(Me.txtProvincia)
-        Me.Controls.Add(Me.txtPoblacion)
         Me.Controls.Add(Me.txtCodPost)
         Me.Controls.Add(Me.txtDireccion)
         Me.Controls.Add(Me.txtNombre)
@@ -380,8 +380,6 @@ Partial Class frmAuxiliarProveedores
     Friend WithEvents BtnAceptar As Button
     Friend WithEvents comboCodSucursal As ComboBox
     Friend WithEvents comboCodBanc As ComboBox
-    Friend WithEvents txtProvincia As TextBox
-    Friend WithEvents txtPoblacion As TextBox
     Friend WithEvents txtCodPost As TextBox
     Friend WithEvents txtDireccion As TextBox
     Friend WithEvents txtNombre As TextBox
@@ -406,4 +404,6 @@ Partial Class frmAuxiliarProveedores
     Friend WithEvents dateTimeFechaAlta As DateTimePicker
     Friend WithEvents comboFormaPago As ComboBox
     Friend WithEvents lblCodFormaPago As Label
+    Friend WithEvents comboProvincia As ComboBox
+    Friend WithEvents comboPoblacion As ComboBox
 End Class

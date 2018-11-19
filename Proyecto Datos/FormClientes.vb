@@ -2,17 +2,20 @@
 Public Class FormClientes
 
     Dim DtsMClientes As DataSet
-    Dim DtaClientes, DtaCPedidosC, DtaSucursales, DtaFormasPago, DtaDirEnvio, DtaBancos As OleDbDataAdapter
+    Dim DtaClientes, DtaCPedidosC, DtaSucursales, DtaFormasPago, DtaDirEnvio, DtaBancos, DtaProvincias As OleDbDataAdapter
     Public OperadoresString, OperadoresNumFec As String()
     Private Sub FrmCliente_Load(sender As Object, e As EventArgs) Handles Me.Load
 
         CnnGestion = New OleDbConnection _
             ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-            "L:\DesenvolvementoInterfaces\proyectos visual studio\Proyecto Datos\Gestion comercial.mdb")
+            "C:\Users\Malocho\proyectos_visual_studio\source\repos\ProyectoDatos\Gestion comercial.mdb")
         DtaClientes = New OleDbDataAdapter("Select * from Clientes order by Codigo", CnnGestion)
         DtsMClientes = New DataSet
         DtaClientes.Fill(DtsMClientes, "Clientes")
         Dim cmbProveedores As New OleDbCommandBuilder(DtaClientes)      'permite modificar
+
+        DtaProvincias = New OleDbDataAdapter("Select * from Provincias order by CodProv", CnnGestion)
+        DtaProvincias.Fill(DtsMClientes, "Provincias")
 
         DtaSucursales = New OleDbDataAdapter("Select * from Sucursales order by CodSuc", CnnGestion)
         DtaSucursales.Fill(DtsMClientes, "Sucursales")
@@ -112,8 +115,10 @@ Public Class FormClientes
             .txtNombre.Text = txtNombre.Text
             .txtDireccion.Text = txtDireccion.Text
             .txtCodPost.Text = txtCodPost.Text
-            .txtPoblacion.Text = txtPoblacion.Text
-            .txtProvincia.Text = txtProvincia.Text
+            ' .txtPoblacion.Text = txtPoblacion.Text
+            '.txtProvincia.Text = txtProvincia.Text
+            MostrarValorEnCombo(DtsMClientes.Tables("Clientes"), "Poblac", .comboPoblacion, txtPoblacion.Text)
+            MostrarValorEnCombo(DtsMClientes.Tables("Clientes"), "Provin", .comboProvincia, txtProvincia.Text)
             .txtFax.Text = txtFax.Text
             .txtEmail.Text = txtEmail.Text
             .txtTelfn.Text = txtTlfn.Text
@@ -122,16 +127,18 @@ Public Class FormClientes
             MostrarValorEnCombo(DtsMClientes.Tables("Clientes"), "CodBan", .comboCodBanc, txtCodBanc.Text)             'metodo en procedimientos y datos globales
             MostrarValorEnCombo(DtsMClientes.Tables("Clientes"), "CodSuc", .comboCodSucursal, txtCodSucur.Text)
             MostrarValorEnCombo(DtsMClientes.Tables("Clientes"), "CodFPago", .comboFormaPago, txtFormaPago.Text)
-            'MostrarValorEnCombo(DtsMClientes.Tables("Clientes"), "DirEnv", .comboDirEnvio, txtDireccEnvio.Text)
+            MostrarValorEnCombo(DtsMClientes.Tables("Clientes"), "DirEnv", .comboDirEnvio, txtDireccEnvio.Text)
         End With
 
     End Sub
     Private Sub EnlazarCombos(formauxM As FormAuxiliarClientes)               'ENLAZAR LOS COMBOS, SON DEPENDIENTES EL UNO DEL OTRO y me falta por hacer
         With formauxM
-            '.comboPoblacion.DataSource = DtsMClientes.Tables("Direccion")
-            '.comboProvincia.DisplayMember = "Direccion"
-            '.comboProvincia.ValueMember = "CodCli"
-            '.com
+            .comboPoblacion.DataSource = DtsMClientes.Tables("Direccion")
+            .comboPoblacion.DisplayMember = "Poblacion"
+            .comboPoblacion.ValueMember = "CodCli"
+            .comboProvincia.DataSource = DtsMClientes.Tables("Provincias")
+            .comboProvincia.ValueMember = "Nombre"
+            .comboProvincia.DisplayMember = "CodProv"
             .comboCodBanc.DataSource = DtsMClientes.Tables("Bancos")
             .comboCodBanc.DisplayMember = "Nombre"          'esto es lo que enseña
             .comboCodBanc.ValueMember = "CodBanco"            'esto es lo que envía internamente
@@ -188,7 +195,8 @@ Public Class FormClientes
             fila("Nombre") = .txtNombre.Text
             fila("Dirección") = .txtDireccion.Text
             fila("CodPos") = .txtCodPost.Text
-            fila("Poblac") = .txtPoblacion.Text
+            fila("Poblac") = .comboPoblacion.SelectedValue
+            fila("Provin") = .comboProvincia.SelectedValue
             fila("Tfno") = CSng(.txtTelfn.Text)
             fila("fax") = CSng(.txtFax.Text)               'controlar valor num listo
             fila("email") = .txtEmail.Text

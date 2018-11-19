@@ -2,17 +2,23 @@
 Imports System.Data.OleDb
 Public Class FormProveedores
     Dim DtsMProveedores As DataSet
-    Dim DtaProveedores, DtaCPedidosC, DtaSucursales, DtaFormasPago, DtaBancos As OleDbDataAdapter
+    Dim DtaProveedores, DtaCPedidosC, DtaSucursales, DtaFormasPago, DtaBancos, DtaProvincias, DtaDirEnvio As OleDbDataAdapter
     Public OperadoresString, OperadoresNumFec As String()
     Private Sub FrmProveedores_Load(sender As Object, e As EventArgs) Handles Me.Load
 
         CnnGestion = New OleDbConnection _
         ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        "L:\DesenvolvementoInterfaces\proyectos visual studio\Proyecto Datos\Gestion comercial.mdb")
+        "C:\Users\Malocho\proyectos_visual_studio\source\repos\ProyectoDatos\Gestion comercial.mdb")
         DtaProveedores = New OleDbDataAdapter("Select * from Proveedores order by Codigo", CnnGestion)
         DtsMProveedores = New DataSet
         DtaProveedores.Fill(DtsMProveedores, "Provee")
         Dim cmbProveedores As New OleDbCommandBuilder(DtaProveedores)   'permite modificar
+
+        DtaProvincias = New OleDbDataAdapter("Select * from Provincias order by CodProv", CnnGestion)
+        DtaProvincias.Fill(DtsMProveedores, "Provincias")
+
+        DtaDirEnvio = New OleDbDataAdapter("Select * from Direcciones order by CodCli", CnnGestion)
+        DtaDirEnvio.Fill(DtsMProveedores, "Direccion")
 
         DtaSucursales = New OleDbDataAdapter("Select * from Sucursales order by CodSuc", CnnGestion)
         DtaSucursales.Fill(DtsMProveedores, "Sucursales")
@@ -107,8 +113,8 @@ Public Class FormProveedores
             .txtNombre.Text = txtNombre.Text
             .txtDireccion.Text = txtDireccion.Text
             .txtCodPost.Text = txtCodPos.Text
-            .txtPoblacion.Text = txtPoblacion.Text
-            .txtProvincia.Text = txtProvincia.Text
+            MostrarValorEnCombo(DtsMProveedores.Tables("Direccion"), "Poblacion", .comboPoblacion, txtPoblacion.Text)
+            MostrarValorEnCombo(DtsMProveedores.Tables("Provincias"), "Nombre", .comboProvincia, txtProvincia.Text)
             .txtTelfn.Text = txtTlfn.Text
             .txtFax.Text = txtFax.Text
             .txtEmail.Text = txtEmail.Text
@@ -121,6 +127,12 @@ Public Class FormProveedores
     End Sub
     Private Sub EnlazarCombos(formauxM As frmAuxiliarProveedores)               'ENLAZAR LOS COMBOS, SON DEPENDIENTES EL UNO DEL OTRO y me falta por hacer
         With formauxM
+            .comboPoblacion.DataSource = DtsMProveedores.Tables("Direccion")
+            .comboPoblacion.DisplayMember = "Poblacion"
+            .comboPoblacion.ValueMember = "CodCli"
+            .comboProvincia.DataSource = DtsMProveedores.Tables("Provincias")
+            .comboProvincia.ValueMember = "Nombre"
+            .comboProvincia.DisplayMember = "CodProv"
             .comboCodBanc.DataSource = DtsMProveedores.Tables("Bancos")
             .comboCodBanc.DisplayMember = "Nombre"          'esto es lo que enseña
             .comboCodBanc.ValueMember = "CodBanco"           'esto es lo que envía internamente
@@ -174,7 +186,8 @@ Public Class FormProveedores
             fila("Nombre") = .txtNombre.Text
             fila("Dirección") = .txtDireccion.Text
             fila("CodPos") = CSng(.txtCodPost.Text)
-            fila("Poblac") = .txtPoblacion.Text
+            fila("Poblac") = .comboPoblacion.SelectedValue
+            fila("Provin") = .comboProvincia.SelectedValue
             fila("Tfno") = CSng(.txtTelfn.Text)
             fila("Fax") = CSng(.txtFax.Text)               'controlar valor num listo
             fila("email") = .txtEmail.Text
